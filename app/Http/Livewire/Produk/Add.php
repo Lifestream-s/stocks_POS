@@ -19,7 +19,7 @@ class Add extends Component
     public function save_product(){
         $this->validate();
         
-         // Execution doesn't reach here if validation fails.
+         // Jika eksekusi gagal
         try{
             \DB::beginTransaction();
             
