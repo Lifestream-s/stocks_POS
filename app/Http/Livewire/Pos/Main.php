@@ -7,6 +7,7 @@ use Livewire\Component;
 class Main extends Component
 {
     public $arr = [];
+    public $baru = [];
     public $listen = 1;
     
     protected $listeners = [
@@ -20,6 +21,10 @@ class Main extends Component
     
     public function hapus($id){
         unset($this->arr[$id]);
+        
+        $this->baru = array_values($this->arr);
+        $this->arr = $this->baru;
+        return $this->arr;
     }
     
     public function render()
