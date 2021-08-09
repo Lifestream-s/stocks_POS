@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire\Pos;
 use App\Buku as Bk;
+use Session;
 use Livewire\Component;
 
 class Main extends Component
 {
     public $arr = [];
     public $baru = [];
+    public $sama = [];
     public $listen = 1;
     
     protected $listeners = [
@@ -15,8 +17,19 @@ class Main extends Component
     ];
     
     public function getcheck($id, $no){
-        
+              
         $this->arr[$no][0] = $id;
+         
+        $unique = array_unique($this->arr, SORT_REGULAR);
+        $diffCellUniq = array_diff_key($this->arr, $unique);
+        
+        $this->sama = $diffCellUniq;
+        
+        if($this->sama){
+            $this->arr[$no][0] = 0;
+            unset($this->arr[$no]);
+            return Session::flash('message-alert', "Item buku tidak boleh sama");
+        }
     }
     
     public function hapus($id){

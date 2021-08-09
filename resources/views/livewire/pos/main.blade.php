@@ -1,5 +1,14 @@
 <div>
     <div class='row'>
+        <div class="col-md-12">
+             @if (session()->has('message-alert'))
+                <div class="col-md-12">
+                    <div class="alert alert-danger">
+                        {{ session('message-alert') }}
+                    </div>
+                </div>
+            @endif
+        </div>
         <div class='col-md-4'>
             <table class='table bg-blue-dark'>
                 <thead class='bg-primary text-white'>
@@ -20,7 +29,9 @@
                 <tbody>
                 <?php 
                 $z = 1;
+                
                for($i = 0; $i < count($arr) + 1; $i++){
+                  
                     ?>
                 <tr>
                     <td>{{$z++}}</td>
@@ -42,7 +53,7 @@
                     <td><button class="btn btn-danger" wire:click="hapus({{$i}})">x</td>
                     <?php } else { ?>
                     <td><p>Silahkan Tambah buku dengan memilih buku</p></td>
-               <?php }}?>
+                 <?php }} ?>
                 <tr>
                
                 
