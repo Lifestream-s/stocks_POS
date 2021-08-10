@@ -49,13 +49,14 @@
                         </select>
                     </td>
                     <td>
-                     <input class="form-control" type="text" wire:change="change_qty($event.target.value)" value="0">
-                    </td>
+                        <?php if(!empty($arr[$i]) && $arr[$i][0]['id']){ ?>
+                            <input class="form-control" type="text" wire:change="change_qty($event.target.value, {{$i}}, {{$arr[$i][0]['id']}})" value="0">
+                        <?php } ?>
                     <?php if(!empty($arr[$i])){ ?>
                     <td><button class="btn btn-danger" wire:click="hapus({{$i}})">x</td>
                     <?php } else { ?>
                     <td><p>Silahkan Tambah buku dengan memilih buku</p></td>
-                 <?php }} print_r($hs); ?>
+                 <?php }} print_r($baru); ?>
                 <tr>
                
                 

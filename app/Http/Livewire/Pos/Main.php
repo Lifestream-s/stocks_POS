@@ -18,12 +18,15 @@ class Main extends Component
     ];
     
     public function getcheck($id, $no){
-              
-        $this->arr[$no][0] = ['id' => $id];
-         
+        
+        $this->arr[$no][0] = ['id' => $id]; 
+        if (array_key_exists("qty", $this->arr[$no][0])) {
+            unset($this->arr[$no][0]['qty']);  
+        }       
+        
         $ambil_arr_sama = array_unique($this->arr, SORT_REGULAR);
         $ambil_key = array_diff_key($this->arr, $ambil_arr_sama);
-        
+       
         $this->sama = $ambil_key;
         
         if($this->sama){
@@ -33,13 +36,30 @@ class Main extends Component
         }
     }
     
-    public function change_qty($qty){
+    public function change_qty($qty,$no, $id){
      
         $this->arr[$no][0] = [
             'id' => $id,
             'qty' => $qty
         ];
 
+        if (array_key_exists("qty", $this->arr[$no][0])) {
+            $this->baru[$no][0] = $this->arr[$no][0];
+            unset($this->arr[$no][0]['qty']);  
+        }       
+        
+        $ambil_arr_sama = array_unique($this->arr, SORT_REGULAR);
+        $ambil_key = array_diff_key($this->arr, $ambil_arr_sama);
+       
+        $this->sama = $ambil_key;
+        
+        if($this->sama){
+            $this->arr[$no][0]['id'] = 0;
+            unset($this->arr[$no]);
+            return Session::flash('message-alert', "Item buku tidak boleh sama");
+        }
+        
+        return $this->baru;
     }
     
     public function hapus($id){
