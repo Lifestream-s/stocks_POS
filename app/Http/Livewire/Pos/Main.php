@@ -72,6 +72,18 @@ class Main extends Component
     public function hapus($id){
         unset($this->arr[$id]);
         unset($this->warning[$id]);
+        
+        foreach($this->arr as $k => $v){
+            foreach($v as $w => $z){
+                if($k != $id){
+                    $this->arr[$k][0] = [
+                        'id' => $z['id'],
+                        'qty' => $z['qty']
+                    ];
+                }
+            }
+        }
+        
         $this->arr = array_values($this->arr);
         $this->warning = array_values($this->warning);
     }
