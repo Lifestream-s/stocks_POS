@@ -84,6 +84,8 @@
             window.livewire.on('select2',()=>{
                 initSelectCompanyDrop();
             });
+            
+            
     });
     </script>
 </div>
