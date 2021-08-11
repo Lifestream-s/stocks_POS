@@ -56,7 +56,13 @@
                     <td><button class="btn btn-danger" wire:click="hapus({{$i}})">x</td>
                     <?php } else { ?>
                     <td><p>Silahkan Tambah buku dengan memilih buku</p></td>
-                 <?php }} print_r($baru); ?>
+                 <?php }}
+                 echo "Pertama: Warning";
+                 echo "<br>";
+                 print_r($warning);
+                 echo "<br>";
+                 echo "Kedua: Arr";
+                 echo "<br>"; print_r($arr);?>
                 <tr>
                
                 
@@ -84,8 +90,6 @@
             window.livewire.on('select2',()=>{
                 initSelectCompanyDrop();
             });
-            
-            
     });
     </script>
 </div>

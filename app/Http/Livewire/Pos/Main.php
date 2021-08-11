@@ -8,10 +8,10 @@ use Livewire\Component;
 class Main extends Component
 {
     public $arr = [];
-    public $baru = [];
-    public $sama = [];
-    public $qtys;
-    public $hs;
+    public $debug = [];
+    public $warning = [];
+    
+
     protected $listeners = [
         'getcheck',
         'change_qty'
@@ -19,21 +19,46 @@ class Main extends Component
     
     public function getcheck($id, $no){
         
-        $this->arr[$no][0] = ['id' => $id]; 
-        if (array_key_exists("qty", $this->arr[$no][0])) {
-            unset($this->arr[$no][0]['qty']);  
-        }       
+        $this->arr[$no][0] = [
+            'id' => $id,
+            'qty' => 0
+        ]; 
         
-        $ambil_arr_sama = array_unique($this->arr, SORT_REGULAR);
-        $ambil_key = array_diff_key($this->arr, $ambil_arr_sama);
-       
-        $this->sama = $ambil_key;
-        
-        if($this->sama){
-            $this->arr[$no][0]['id'] = 0;
-            unset($this->arr[$no]);
-            return Session::flash('message-alert', "Item buku tidak boleh sama");
+        foreach($this->arr as $k => $v){
+            foreach($v as $k2 => $v2){
+                
+                $this->warning[$k][$k2] = $v2;
+                
+                foreach($this->warning as $w => $z){
+                    foreach($z as $a => $vs){
+                        if($k != $w && $this->warning[$w][$a]['id'] == $this->arr[$k][$k2]['id']){
+                            $this->arr[$no][0]['id'] = 0;
+                            unset($this->arr[$no]);
+                            unset($this->warning[$no]);
+                            return Session::flash('message-alert', "Item buku tidak boleh sama");
+                        }
+                    }
+                }
+            }
+            
+           
         }
+        
+        
+//        if (array_key_exists("qty", $this->arr[$no][0])) {
+//            unset($this->arr[$no][0]['qty']);  
+//        }       
+//        
+//        $ambil_arr_sama = array_unique($this->arr, SORT_REGULAR);
+//        $ambil_key = array_diff_key($this->arr, $ambil_arr_sama);
+//       
+//        $this->sama = $ambil_key;
+//        
+//        if($this->sama){
+//            $this->arr[$no][0]['id'] = 0;
+//            unset($this->arr[$no]);
+//            return Session::flash('message-alert', "Item buku tidak boleh sama");
+//        }
     }
     
     public function change_qty($qty,$no, $id){
@@ -43,31 +68,29 @@ class Main extends Component
             'qty' => $qty
         ];
 
-        if (array_key_exists("qty", $this->arr[$no][0])) {
-            $this->baru[$no][0] = $this->arr[$no][0];
-            unset($this->arr[$no][0]['qty']);  
-        }       
-        
-        $ambil_arr_sama = array_unique($this->arr, SORT_REGULAR);
-        $ambil_key = array_diff_key($this->arr, $ambil_arr_sama);
-       
-        $this->sama = $ambil_key;
-        
-        if($this->sama){
-            $this->arr[$no][0]['id'] = 0;
-            unset($this->arr[$no]);
-            return Session::flash('message-alert', "Item buku tidak boleh sama");
-        }
-        
-        return $this->baru;
+//        if (array_key_exists("qty", $this->arr[$no][0])) {
+//            $this->baru[$no][0] = $this->arr[$no][0];
+//            unset($this->arr[$no][0]['qty']);  
+//        }       
+//        
+//        $ambil_arr_sama = array_unique($this->arr, SORT_REGULAR);
+//        $ambil_key = array_diff_key($this->arr, $ambil_arr_sama);
+//       
+//        $this->sama = $ambil_key;
+//        
+//        if($this->sama){
+//            $this->arr[$no][0]['id'] = 0;
+//            unset($this->arr[$no]);
+//            return Session::flash('message-alert', "Item buku tidak boleh sama");
+//        }
+//        
+//        
+//        return $this->sama;
     }
     
     public function hapus($id){
         unset($this->arr[$id]);
-        
-        $this->baru = array_values($this->arr);
-        $this->arr = $this->baru;
-        return $this->arr;
+        $this->arr = array_values($this->arr);
     }
     
     public function render()
