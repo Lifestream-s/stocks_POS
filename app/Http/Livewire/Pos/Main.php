@@ -39,9 +39,7 @@ class Main extends Component
                         }
                     }
                 }
-            }
-            
-           
+            }  
         }
         
         
@@ -67,6 +65,24 @@ class Main extends Component
             'id' => $id,
             'qty' => $qty
         ];
+        
+        foreach($this->arr as $k => $v){
+            foreach($v as $k2 => $v2){
+                
+                $this->warning[$k][$k2] = $v2;
+                
+                foreach($this->warning as $w => $z){
+                    foreach($z as $a => $vs){
+                        if($k != $w && $this->warning[$w][$a]['id'] == $this->arr[$k][$k2]['id']){
+                            $this->arr[$no][0]['id'] = 0;
+                            unset($this->arr[$no]);
+                            unset($this->warning[$no]);
+                            return Session::flash('message-alert', "Item buku tidak boleh sama");
+                        }
+                    }
+                }
+            }  
+        }
 
 //        if (array_key_exists("qty", $this->arr[$no][0])) {
 //            $this->baru[$no][0] = $this->arr[$no][0];
@@ -90,7 +106,9 @@ class Main extends Component
     
     public function hapus($id){
         unset($this->arr[$id]);
+        unset($this->warning[$id]);
         $this->arr = array_values($this->arr);
+        $this->warning = array_values($this->warning);
     }
     
     public function render()
