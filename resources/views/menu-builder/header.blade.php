@@ -18,7 +18,7 @@
  @livewireStyles
 </head>
 <body>
-	<div class="container">
+	<div class="row">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-gradient" style='background-color:#3474b5!important;'>
 <div class="container-fluid">
