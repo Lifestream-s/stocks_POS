@@ -36,7 +36,7 @@
                 <tr>
                     <td>{{$z++}}</td>
                     <td>
-                        <select name="country" class="js-example-basic-single" style="width:100px;" attr-no="{{$i}}">
+                        <select class="buku-pilih" style="width:100px;" attr-no="{{$i}}">
                             <option value="0">Pilih Buku</option>
                             <?php foreach($buku as $k => $v){ 
                               
@@ -77,19 +77,19 @@
         //$('.js-example-basic-single').select2();
         
 
-            window.initSelectCompanyDrop=()=>{
-                $('.js-example-basic-single').select2({
+            window.initSelectBuku=()=>{
+                $('.buku-pilih').select2({
                     placeholder: 'Pilih buku'});
             }
-            initSelectCompanyDrop();
+            initSelectBuku();
        
-                $(document).on('change', '.js-example-basic-single', function (e) {
+                $(document).on('change', '.buku-pilih', function (e) {
                     var nos = $(this).attr('attr-no');
                     livewire.emit('getcheck', e.target.value, nos);
                 });
             
             window.livewire.on('select2',()=>{
-                initSelectCompanyDrop();
+                initSelectBuku();
             });
     });
     </script>
