@@ -17,8 +17,13 @@
 
  @livewireStyles
 </head>
+<style>
+    .container-fluid{
+        padding: 0;
+    }
+</style>
 <body>
-	<div class="row">
+	<div class="container-fluid">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-gradient bg-primary">
 <div class="container-fluid">
