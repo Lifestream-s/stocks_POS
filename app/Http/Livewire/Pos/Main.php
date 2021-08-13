@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Pos;
 use App\Buku as Bk;
+use App\ShopModel as Sm;
 use Session;
 use Livewire\Component;
 
@@ -90,7 +91,7 @@ class Main extends Component
     
     public function render()
     {
-        $data['buku'] = Bk::get()->toArray();
+        $data['barang'] = Sm::get()->toArray();
         $this->emit('select2');
         return view('livewire.pos.main', $data);
     }

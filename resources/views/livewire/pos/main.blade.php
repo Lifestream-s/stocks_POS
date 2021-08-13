@@ -46,15 +46,15 @@
                     <tr>
                         <td>{{$z++}}</td>
                         <td>
-                            <select class="buku-pilih" style="width:100px;" attr-no="{{$i}}">
-                                <option value="0">Pilih Buku</option>
-                                <?php foreach($buku as $k => $v){ 
+                            <select class="barang-pilih" style="width:100px;" attr-no="{{$i}}">
+                                <option value="0">Pilih Produk</option>
+                                <?php foreach($barang as $k => $v){ 
 
                                         if(!empty($arr[$i]) && $arr[$i][0]['id'] == $v['id']){
                                     ?>
-                                <option value="{{$v['id']}}" selected>{{$v['judul']}}</option>
+                                <option value="{{$v['id']}}" selected>{{$v['nama']}}</option>
                                        <?php } else { ?>
-                                <option value="{{$v['id']}}">{{$v['judul']}}</option>
+                                <option value="{{$v['id']}}">{{$v['nama']}}</option>
                                 <?php }} ?>
                             </select>
                         </td>
@@ -88,19 +88,19 @@
         //$('.js-example-basic-single').select2();
         
 
-            window.initSelectBuku=()=>{
-                $('.buku-pilih').select2({
-                    placeholder: 'Pilih buku'});
+            window.initSelectProduk=()=>{
+                $('.barang-pilih').select2({
+                    placeholder: 'Pilih Produk'});
             }
-            initSelectBuku();
+            initSelectProduk();
        
-                $(document).on('change', '.buku-pilih', function (e) {
+                $(document).on('change', '.barang-pilih', function (e) {
                     var nos = $(this).attr('attr-no');
                     livewire.emit('getcheck', e.target.value, nos);
                 });
             
             window.livewire.on('select2',()=>{
-                initSelectBuku();
+                initSelectProduk();
             });
     });
     </script>
