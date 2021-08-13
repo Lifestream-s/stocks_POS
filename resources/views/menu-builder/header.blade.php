@@ -50,7 +50,8 @@ thead {
 tbody {
     flex: 1 1 auto;
     display: block;
-    height:300px;overflow:scroll;
+    height:300px;
+    overflow:scroll;
     overflow-y: auto;
     overflow-x: hidden;
 }

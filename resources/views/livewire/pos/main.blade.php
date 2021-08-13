@@ -30,10 +30,10 @@
             <div class='col-md-8'>
                 <table class='table table-responsive table-fixed text-center'>
                     <thead class='bg-primary text-white'>
-                        <th style="width:50px;">No</th>
-                        <th style="width:200px;">Nama Item</th>
-                        <th style="width:50px;">Qty</th>
-                        <th style="width:20px;"><i class="fa fa-trash-o" aria-hidden="true"></i></th>
+                        <th>No</th>
+                        <th>Nama Item</th>
+                        <th>Qty</th>
+                        <th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
                     </thead>
 
                     <tbody>
