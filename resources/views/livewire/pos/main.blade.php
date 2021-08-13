@@ -1,5 +1,13 @@
 <div>
     <div class='container'>
+        <div class="row">
+            <div class="text-center">
+                <h2>Point Of Sale</h2>
+                <hr>
+                <p style="font-size:20px;">Transaksi</p>
+            </div>
+        </div>
+        
         <div class="col-md-12">
              @if (session()->has('message-alert'))
                 <div class="col-md-12">
@@ -9,6 +17,7 @@
                 </div>
             @endif
         </div>
+        
         <div class="row">
             <div class='col-md-4'>
                 <table class='table bg-blue-dark'>

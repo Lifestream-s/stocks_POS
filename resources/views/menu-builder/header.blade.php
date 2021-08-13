@@ -20,7 +20,7 @@
 <body>
 	<div class="row">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-gradient" style='background-color:#3474b5!important;'>
+<nav class="navbar navbar-expand-lg navbar-dark bg-gradient bg-primary">
 <div class="container-fluid">
 	<a class="navbar-brand" href="#">Brand</a>
 	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
@@ -54,7 +54,7 @@
 </nav>
 
 
-		<section class="section-content py-5">
+		<section class="section-content py-2">
 
 		
 		</section>
