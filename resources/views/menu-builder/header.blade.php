@@ -35,6 +35,31 @@
 
         clear:both;
     }
+    
+table {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+}
+
+
+thead {
+    flex: 0 0 auto;
+}
+
+tbody {
+    flex: 1 1 auto;
+    display: block;
+    height:300px;overflow:scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
 </style>
 <body>
 	<div class="container-fluid warp">

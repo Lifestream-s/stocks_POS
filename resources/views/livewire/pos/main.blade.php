@@ -28,7 +28,7 @@
             </div>
 
             <div class='col-md-8'>
-                <table class='table text-center'>
+                <table class='table table-responsive table-fixed text-center'>
                     <thead class='bg-primary text-white'>
                         <th style="width:50px;">No</th>
                         <th style="width:200px;">Nama Item</th>
