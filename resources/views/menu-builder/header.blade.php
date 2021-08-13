@@ -21,12 +21,26 @@
     .container-fluid{
         padding: 0;
     }
+    
+    html, body {
+        height: 96%;
+    }
+
+
+    .warp {
+        min-height: 100%;
+    }
+    
+    .footers{
+
+        clear:both;
+    }
 </style>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid warp">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-gradient bg-primary">
-<div class="container-fluid">
+<div class="container">
 	<a class="navbar-brand" href="#">Brand</a>
 	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"  aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
