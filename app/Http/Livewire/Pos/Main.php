@@ -36,7 +36,7 @@ class Main extends Component
                             $this->arr[$no][0]['id'] = 0;
                             unset($this->arr[$no]);
                             unset($this->warning[$no]);
-                            return Session::flash('message-alert', "Item buku tidak boleh sama");
+                            return Session::flash('message-alert', "Pilih item produk yang berbeda");
                         }
                     }
                 }

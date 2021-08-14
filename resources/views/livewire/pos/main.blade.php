@@ -72,7 +72,7 @@
                         <?php if(!empty($arr[$i])){ ?>
                         <td><button class="btn btn-danger" wire:click="hapus({{$i}})">x</td>
                         <?php } else { ?>
-                        <td><p>Silahkan Tambah buku dengan memilih buku</p></td>
+                        <td><p>Silahkan Tambah produk dengan memilih produk</p></td>
                      <?php }} ?>
                     <tr>
 
