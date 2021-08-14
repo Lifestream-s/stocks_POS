@@ -69,6 +69,7 @@
                                 ?>
                                 <input class="form-control" type="text" wire:change="change_qty($event.target.value, {{$i}}, {{$arr[$i][0]['id']}})" value="{{$value}}">
                             <?php } ?>
+                        </td>
                         <?php if(!empty($arr[$i])){ ?>
                         <td><button class="btn btn-danger" wire:click="hapus({{$i}})">x</td>
                         <?php } else { ?>
