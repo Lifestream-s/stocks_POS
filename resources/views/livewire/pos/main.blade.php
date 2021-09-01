@@ -37,6 +37,7 @@
                     </thead>
 
                     <tbody>
+                         <div x-data="{ data: $persist(@entangle('arr')) }">
                     <?php 
                     $z = 1;
 
@@ -77,7 +78,7 @@
                      <?php }} ?>
                     <tr>
 
-
+                         </div>
                     </tbody>
                 </table>
             </div>

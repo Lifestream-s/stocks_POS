@@ -3,8 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/stocks/app/Http/Livewire/Pos/Main.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/stocks/resources/views/livewire/pos/main.blade.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/stocks_POS/routes/web.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/stocks_POS/config/app.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/stocks_POS/config/livewire.php</file>
         </group>
     </open-files>
 </project-private>
